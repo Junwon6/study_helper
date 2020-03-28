@@ -1,0 +1,58 @@
+.input_wrapper {
+    padding-top: 20px;
+}
+
+.input_wrapper div {
+    margin: 15px;
+}
+
+.input_wrapper span {
+    font-size: 13px;
+}
+
+.input_wrapper input {
+    border: white;
+    border-bottom: 1px solid #D5D5D5;
+    font-size: 13px;
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input_wrapper textarea {
+    border: 1px solid #D5D5D5;
+    font-size: 13px;
+    width: 250px;
+    height: 200px;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input_wrapper input:focus {
+    outline: none;
+}
+
+.input_wrapper textarea:focus {
+    outline: none;
+}
+
+.input_wrapper table {
+    width: 350px;
+    margin: auto;
+}
+
+.input_wrapper button {
+    margin: 10px;
+    font-size: 12px;
+}
+
+.input_wrapper select {
+    font-size: 13px;
+}
+
+.input_wrapper #order_check {
+    width: 13px;
+}

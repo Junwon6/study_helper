@@ -1,0 +1,13 @@
+.history_wrapper table {
+    width: 650px;
+    margin: auto;
+}
+
+.history_wrapper table tbody tr td {
+    font-size: 12px;
+}
+
+.history_wrapper table thead tr th {
+    font-size: 17px;
+    padding-bottom: 10px;
+}

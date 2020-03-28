@@ -1,0 +1,41 @@
+.test_result_wrapper table {
+    width: 650px;
+    margin: auto;
+}
+
+.test_result_wrapper table thead tr th {
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.test_result_wrapper table tbody tr td {
+    font-size: 12px;
+}
+
+.test_result_wrapper table input {
+    width: 70%;
+    border: white;
+    text-align: center;
+    border-bottom: 1px solid #D5D5D5;
+    font-size: 11px;
+}
+
+.test_result_wrapper table input:focus {
+    outline: none;
+}
+
+.row_word {
+    width: 150px;
+}
+
+.row_answer {
+    width: 200px;
+}
+
+.row_definition {
+    width: 300px;
+}
+
+.test_result_wrapper button {
+    margin-top: 25px;
+}

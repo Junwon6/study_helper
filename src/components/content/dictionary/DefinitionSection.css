@@ -1,0 +1,13 @@
+.definition_section_wrapper {
+    width: 500px;
+    margin: auto;
+}
+
+.button_wrapper {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.definition_wrapper {
+    font-size: 13px;
+}

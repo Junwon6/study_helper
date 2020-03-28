@@ -1,0 +1,18 @@
+.toggle_button_wrapper {
+    -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 3px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-off {
+    text-decoration: line-through;
+    color: #EAEAEA
+}
+
+.btn-on {
+}

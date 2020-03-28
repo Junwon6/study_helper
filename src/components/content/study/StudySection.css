@@ -1,0 +1,13 @@
+.study_wrapper button {
+    margin: 10px;
+    font-size: 10px;
+}
+
+#answer_section {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.study_sub_wrapper {
+    height: 230px;
+}

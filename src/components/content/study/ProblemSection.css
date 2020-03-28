@@ -1,0 +1,15 @@
+.problem_wrapper input {
+    border: white;
+    text-align: center;
+    border-bottom: 1px solid #D5D5D5;
+    font-size: 13px;
+    width: 100px;
+}
+
+.problem_wrapper div {
+    font-size: 13px;
+}
+
+.problem_wrapper input:focus {
+    outline: none;
+}

@@ -1,0 +1,28 @@
+.problem_result_wrapper input {
+    border: white;
+    text-align: center;
+    border-bottom: 1px solid #D5D5D5;
+    font-size: 13px;
+    width: 100px;
+}
+
+.problem_result_wrapper div {
+    font-size: 13px;
+}
+
+.problem_result_wrapper input:focus {
+    outline: none;
+}
+
+.right_user_answer {
+    color: blue;
+}
+
+.wrong_user_answer {
+    text-decoration: line-through;
+    color: #EAEAEA;
+}
+
+.right_answer {
+    color: red;
+}

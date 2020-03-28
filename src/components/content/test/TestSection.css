@@ -1,0 +1,33 @@
+.test_wrapper table {
+    width: 400px;
+    margin: auto;
+}
+
+.test_wrapper table thead tr th {
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.test_wrapper table tbody tr td {
+    font-size: 12px;
+}
+
+.test_wrapper table input {
+    width: 70%;
+    border: white;
+    text-align: center;
+    border-bottom: 1px solid #D5D5D5;
+    font-size: 11px;
+}
+
+.test_wrapper table input:focus {
+    outline: none;
+}
+
+.row_word {
+    width: 200px;
+}
+
+.test_wrapper button {
+    margin-top: 25px;
+}
