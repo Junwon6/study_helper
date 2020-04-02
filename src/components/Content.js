@@ -8,8 +8,7 @@ import InputSection from './content/input/InputSection';
 
 class Content extends Component {
     render() {
-        const page = this.props.page;
-        const { changePageState } = this.props;
+        const { page,changePageState } = this.props;
 
         switch (page) {
             case 'dictionary':

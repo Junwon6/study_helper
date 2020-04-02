@@ -11,24 +11,19 @@ class ToggleButton extends Component {
     }
 
     toggle = () => {
-        if (this.state.on) {
-            this.setState({
-                on: false
-            })
-        }
-        else {
-            this.setState({
-                on: true
-            })
-        }
-        console.log(this.state.on);
+        const { value, changeSubjectState } = this.props;
+
+        changeSubjectState(value, ((this.state.on) ? false : true));
+        this.setState({
+            on: ((this.state.on) ? false : true)
+        });
     }
 
     render() {
         const { value } = this.props;
         const { toggle } = this;
         return (
-            <div className={"toggle_button_wrapper " + (this.state.on ? 'btn-on' : 'btn-off')} onClick={ toggle }>{ value }</div>
+            <div className={"toggle_button_wrapper " + (this.state.on ? 'btn-on' : 'btn-off')} onClick={toggle}>{value}</div>
         )
     }
 }
