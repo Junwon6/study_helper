@@ -3,7 +3,11 @@ import './ProblemSection.css'
 
 class ProblemSection extends Component {
     componentDidUpdate() {
-        document.getElementsByClassName('user_answer')[0].focus()
+        const temp = document.getElementsByClassName('user_answer')[0];
+
+        if (temp) {
+            temp.focus();
+        }
     }
     componentDidMount() {
         const temp = document.getElementsByClassName('user_answer')[0];
