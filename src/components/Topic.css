@@ -1,4 +1,4 @@
-.subject button {
+.topic button {
     width: 10px;
     height: 10px;
     border: 0;
@@ -8,6 +8,6 @@
     margin-left: 3px;
 }
 
-.subject button:focus {
+.topic button:focus {
     outline: none;
 }

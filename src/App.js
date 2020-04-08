@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Subject from './components/Subject';
+import Topic from './components/Topic';
 import Menu from './components/Menu';
 import Content from './components/Content';
 import Logo from './components/Logo';
@@ -7,7 +7,7 @@ import Logo from './components/Logo';
 
 import './App.css';
 
-const subject = {
+const topic = {
   dictionary: ['dictionary', 'history', 'test'],
   computer: ['study', 'input', 'search', 'etc'],
 }
@@ -17,7 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      subject: 'computer',
+      topic: 'computer',
       page: 'study',
       page_state: 'normal'
     }
@@ -31,8 +31,8 @@ class App extends Component {
 
   changeSubject = (e) => {
     this.setState({
-      subject: e.target.getAttribute('subject-value'),
-      page: subject[e.target.getAttribute('subject-value')][0],
+      topic: e.target.getAttribute('topic-value'),
+      page: topic[e.target.getAttribute('topic-value')][0],
       page_state: 'normal'
     });
   }
@@ -46,14 +46,14 @@ class App extends Component {
   }
 
   render() {
-    const { page, subject, page_state } = this.state;
+    const { page, topic, page_state } = this.state;
     const { changePage, changeSubject, changePageState } = this;
 
     return (
       <div className="whole_wrapper">
-        <Subject onClick={changeSubject}/>
-        <Logo subject={subject} page_state={page_state}/>
-        <Menu subject={subject} onClick={changePage}/>
+        <Topic onClick={changeSubject}/>
+        <Logo topic={topic} page_state={page_state}/>
+        <Menu topic={topic} onClick={changePage}/>
         <Content page={page} changePageState={changePageState}/>
       </div>
     )

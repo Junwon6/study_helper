@@ -8,8 +8,8 @@ import './Logo.css';
 import { AnimateOnChange } from 'react-animation';
 
 
-const Logo = ({ subject, page_state }) => {
-    switch (subject) {
+const Logo = ({ topic, page_state }) => {
+    switch (topic) {
         case 'dictionary':
             return (<AnimateOnChange animationIn="bounceIn"
                 animationOut="bounceOut"
