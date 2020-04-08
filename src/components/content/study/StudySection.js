@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProblemTemplate from './ProblemTemplate';
 import SubjectSelectSection from './SubjectSelectSection';
+import LevelSelectSection from './GradeSelectSection';
 import './StudySection.css';
 
 
@@ -20,6 +21,12 @@ class StudySection extends Component {
                 '데이터베이스 구축': false,
                 '프로그래밍 언어 활용': false,
                 '정보시스템 구축 관리': false
+            },
+            problem_grade_dict: {
+                'A': false,
+                'B': false,
+                'C': false,
+                'D': false
             }
         }
 
@@ -28,7 +35,7 @@ class StudySection extends Component {
 
     getProblem = () => {
         const { changePageState } = this.props;
-        const { subject_dict } = this.state;
+        const { subject_dict, problem_grade_dict } = this.state;
 
         fetch('http://localhost:4000/getProblem', {
             method: 'post',
@@ -38,7 +45,8 @@ class StudySection extends Component {
             },
             body: JSON.stringify(
                 {
-                    subject_dict: subject_dict
+                    subject_dict: subject_dict,
+                    problem_grade_dict: problem_grade_dict
                 }
             )
         })
@@ -118,9 +126,17 @@ class StudySection extends Component {
         this.getProblem();
     }
 
+    changeProblemLevelState = (problem_grade, state) => {
+        let temp = this.state.problem_grade_dict;
+        temp[problem_grade] = state;
+
+        this.setState({problem_grade_dict: temp});
+        this.getProblem();
+    }
+
     render() {
         const { problem, content, check_result } = this.state;
-        const { getProblem, checkAnswer, changeSubjectState } = this;
+        const { getProblem, checkAnswer, changeSubjectState, changeProblemLevelState } = this;
 
         return (
             <div className="study_wrapper">
@@ -133,6 +149,7 @@ class StudySection extends Component {
                         checkAnswer={checkAnswer} />
                 </div>
                 <SubjectSelectSection changeSubjectState={changeSubjectState}/>
+                <LevelSelectSection changeSubjectState={changeProblemLevelState}/>
             </div>
         )
     }
