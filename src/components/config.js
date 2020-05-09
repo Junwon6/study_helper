@@ -3,11 +3,11 @@ module.exports = {
     TOPIC_INFO: {
         ENGINEER_INFORMATION_PROCESSING: {
             'COLOR': '#48689a',
-            'MENU': ['study', 'insert']
+            'MENU': ['study', 'list', 'insert']
         },
         EMBEDDED_SOFTWARE: {
             'COLOR': '#760c0c',
-            'MENU': ['study', 'insert']
+            'MENU': ['study', 'list', 'insert']
         },
         dictionary: {
             'COLOR': '#00873a',

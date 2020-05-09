@@ -4,21 +4,16 @@ import Menu from './components/Menu';
 import Content from './components/Content';
 import Logo from './components/Logo';
 
+import { TOPIC_INFO } from './components/config'
 
 import './App.css';
-
-const topic = {
-  dictionary: ['dictionary', 'history', 'test'],
-  ENGINEER_INFORMATION_PROCESSING: ['study', 'input', 'search', 'etc'],
-  EMBEDDED_SOFTWARE: ['study', 'input', 'search', 'etc'],
-}
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      topic: 'ENGINEER_INFORMATION_PROCESSING',
+      topic: 'EMBEDDED_SOFTWARE',
       page: 'study',
       page_state: 'normal'
     }
@@ -33,7 +28,7 @@ class App extends Component {
   changeTopic = (e) => {
     this.setState({
       topic: e.target.getAttribute('topic-value'),
-      page: topic[e.target.getAttribute('topic-value')][0],
+      page: TOPIC_INFO[e.target.getAttribute('topic-value')]['MENU'][0],
       page_state: 'normal'
     });
   }
