@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Topic.css';
+import './TopicSelection.css';
 
 import { TOPIC, TOPIC_INFO } from './config';
 

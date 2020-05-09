@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Topic from './components/Topic';
+import TopicSelection from './components/TopicSelection';
 import Menu from './components/Menu';
 import Content from './components/Content';
 import Logo from './components/Logo';
@@ -52,7 +52,7 @@ class App extends Component {
 
     return (
       <div className="whole_wrapper">
-        <Topic onClick={changeTopic}/>
+        <TopicSelection onClick={changeTopic}/>
         <Logo topic={topic} page_state={page_state}/>
         <Menu topic={topic} onClick={changePage}/>
         <Content topic={topic} page={page} changePageState={changePageState}/>
