@@ -1,12 +1,12 @@
 import React from 'react';
 import ToggleButton from './ToggleButton';
 
-import { ENGINEER_INFORMATION_PROCESSING_SUBJECT as EIP_SUBJECT } from '../../config'
+import { SUBJECT } from '../../config'
 
-const SubjectSelectSection = ({ changeSubjectState }) => {
+const SubjectSelectSection = ({ topic, changeSubjectState }) => {
     return (
         <div>
-            {EIP_SUBJECT.map(subject => (<ToggleButton value={subject} changeSubjectState={changeSubjectState}/>))}
+            {SUBJECT[topic].map(subject => (<ToggleButton key={'subject_' + subject} value={subject} changeSubjectState={changeSubjectState}/>))}
         </div>
     );
 };

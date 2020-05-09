@@ -6,7 +6,7 @@ import { ENGINEER_INFORMATION_PROCESSING_PROBLEM_GRADE as EIP_PROBLEM_GRADE } fr
 const LevelSelectSection = ({ changeSubjectState }) => {
     return (
         <div>
-            {EIP_PROBLEM_GRADE.map(subject => (<ToggleButton value={subject} changeSubjectState={changeSubjectState}/>))}
+            {EIP_PROBLEM_GRADE.map(subject => (<ToggleButton key={'level_' + subject} value={subject} changeSubjectState={changeSubjectState}/>))}
         </div>
     );
 };

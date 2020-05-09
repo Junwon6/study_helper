@@ -9,7 +9,8 @@ import './App.css';
 
 const topic = {
   dictionary: ['dictionary', 'history', 'test'],
-  computer: ['study', 'input', 'search', 'etc'],
+  ENGINEER_INFORMATION_PROCESSING: ['study', 'input', 'search', 'etc'],
+  EMBEDDED_SOFTWARE: ['study', 'input', 'search', 'etc'],
 }
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      topic: 'computer',
+      topic: 'ENGINEER_INFORMATION_PROCESSING',
       page: 'study',
       page_state: 'normal'
     }
@@ -29,7 +30,7 @@ class App extends Component {
     });
   }
 
-  changeSubject = (e) => {
+  changeTopic = (e) => {
     this.setState({
       topic: e.target.getAttribute('topic-value'),
       page: topic[e.target.getAttribute('topic-value')][0],
@@ -47,14 +48,14 @@ class App extends Component {
 
   render() {
     const { page, topic, page_state } = this.state;
-    const { changePage, changeSubject, changePageState } = this;
+    const { changePage, changeTopic, changePageState } = this;
 
     return (
       <div className="whole_wrapper">
-        <Topic onClick={changeSubject}/>
+        <Topic onClick={changeTopic}/>
         <Logo topic={topic} page_state={page_state}/>
         <Menu topic={topic} onClick={changePage}/>
-        <Content page={page} changePageState={changePageState}/>
+        <Content topic={topic} page={page} changePageState={changePageState}/>
       </div>
     )
   }

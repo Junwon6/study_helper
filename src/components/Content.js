@@ -4,12 +4,12 @@ import DictionarySection from './content/dictionary/DictionarySection';
 import HistorySection from './content/history/HistorySection';
 import TestSection from './content/test/TestTemplate';
 import StudySection from './content/study/StudySection';
-import InputSection from './content/input/InputSection';
+import InsertSection from './content/insert/InsertSection';
 
 class Content extends Component {
     render() {
-        const { page,changePageState } = this.props;
-
+        const { topic, page,changePageState } = this.props;
+        
         switch (page) {
             case 'dictionary':
                 return <DictionarySection />
@@ -18,9 +18,9 @@ class Content extends Component {
             case 'test':
                 return <TestSection />
             case 'study':
-                return <StudySection changePageState={changePageState}/>
-            case 'input':
-                return <InputSection />
+                return <StudySection topic={topic} changePageState={changePageState}/>
+            case 'insert':
+                return <InsertSection topic={topic}/>
             default:
                 return(<div>no result</div>);
         }

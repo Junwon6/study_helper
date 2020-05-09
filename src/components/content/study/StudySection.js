@@ -3,7 +3,7 @@ import ProblemTemplate from './ProblemTemplate';
 import SubjectSelectSection from './SubjectSelectSection';
 import LevelSelectSection from './GradeSelectSection';
 import './StudySection.css';
-
+import { SUBJECT } from '../../config'
 
 
 
@@ -11,17 +11,16 @@ class StudySection extends Component {
     constructor(props) {
         super(props);
 
+        let subject_dict = {}
+        SUBJECT[props.topic].forEach(subject => {
+            subject_dict[subject] = false
+        });
+        
         this.state = {
             problem: '',
             content: '',
             problem_no: -1,
-            subject_dict: {
-                '소프트웨어 설계': false,
-                '소프트웨어 개발': false,
-                '데이터베이스 구축': false,
-                '프로그래밍 언어 활용': false,
-                '정보시스템 구축 관리': false
-            },
+            subject_dict: subject_dict,
             problem_grade_dict: {
                 'A': false,
                 'B': false,
@@ -29,14 +28,36 @@ class StudySection extends Component {
                 'D': false
             }
         }
-
-        this.getProblem();
+        this.getProblem(null);
     }
 
-    getProblem = () => {
+    shouldComponentUpdate(nextProps) {
+        const { topic } = this.props;
+        const next_topic = nextProps.topic
+        if (topic !== next_topic) {
+            let subject_dict = {}
+            SUBJECT[next_topic].forEach(subject => {
+                subject_dict[subject] = false
+            });
+            this.setState({
+                subject_dict:subject_dict
+            })
+            this.getProblem(subject_dict)
+        }
+        return true;
+    }
+    nextProblem = () => {
+        this.getProblem(null);
+    }
+    getProblem = (_subject_dict) => {
         const { changePageState } = this.props;
-        const { subject_dict, problem_grade_dict } = this.state;
+        const { problem_grade_dict } = this.state;
+        let { subject_dict } = this.state;
 
+        if (_subject_dict) {
+            subject_dict = _subject_dict
+        }
+        
         fetch('http://localhost:4000/getProblem', {
             method: 'post',
             headers: {
@@ -123,7 +144,7 @@ class StudySection extends Component {
         temp[subject] = state;
 
         this.setState({subject_dict: temp});
-        this.getProblem();
+        this.getProblem(null);
     }
 
     changeProblemLevelState = (problem_grade, state) => {
@@ -131,12 +152,13 @@ class StudySection extends Component {
         temp[problem_grade] = state;
 
         this.setState({problem_grade_dict: temp});
-        this.getProblem();
+        this.getProblem(null);
     }
 
     render() {
+        const { topic } = this.props;
         const { problem, content, check_result } = this.state;
-        const { getProblem, checkAnswer, changeSubjectState, changeProblemLevelState } = this;
+        const { nextProblem, checkAnswer, changeSubjectState, changeProblemLevelState } = this;
 
         return (
             <div className="study_wrapper">
@@ -145,10 +167,10 @@ class StudySection extends Component {
                         problem={problem}
                         content={content}
                         check_result={check_result}
-                        getProblem={getProblem}
+                        getProblem={nextProblem}
                         checkAnswer={checkAnswer} />
                 </div>
-                <SubjectSelectSection changeSubjectState={changeSubjectState}/>
+                <SubjectSelectSection topic={topic} changeSubjectState={changeSubjectState}/>
                 <LevelSelectSection changeSubjectState={changeProblemLevelState}/>
             </div>
         )

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './InputSection.css'
+import './InsertSection.css'
+import { SUBJECT } from '../../config'
+
 
 class InputSection extends Component {
     reset = () => {
@@ -50,7 +52,10 @@ class InputSection extends Component {
 
     render() {
         const { reset, save } = this;
+        const { topic } = this.props;
 
+        console.log(topic)
+        console.log(SUBJECT[topic])
         return (
             <div className="input_wrapper">
                 <table>
@@ -59,11 +64,7 @@ class InputSection extends Component {
                             <td><span>과목 : </span></td>
                             <td>
                                 <select name="subject" id="subject_select">
-                                    <option value="소프트웨어 설계">소프트웨어 설계</option>
-                                    <option value="소프트웨어 개발">소프트웨어 개발</option>
-                                    <option value="데이터베이스 구축">데이터베이스 구축</option>
-                                    <option value="프로그래밍 언어 활용">프로그래밍 언어 활용</option>
-                                    <option value="정보시스템 구축 관리">정보시스템 구축 관리</option>
+                                    {SUBJECT[topic].map(subject => (<option key={'option_' + subject} value={subject}>{subject}</option>))}
                                 </select>
                             </td>
                         </tr>
